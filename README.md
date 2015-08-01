@@ -4,6 +4,10 @@
 
 https://github.com/Micooz/frimap
 
+## 演示地址
+
+http://map.apporz.com
+
 ## 简介
 
 吧友地图是一个展示百度贴吧朋友位置的应用，通过这个应用，可发现自己的同城朋友们，可了解吧友的地理分布。
