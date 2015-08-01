@@ -140,9 +140,9 @@ MIT
 * [rmccue/requests](https://github.com/rmccue/Requests)
 * [react](https://github.com/facebook/react)
 * [amazeui](https://github.com/allmobilize/amazeui)
-* [UglifyJS2](https://github.com/mishoo/UglifyJS2.git)
-* [composer](https://github.com/composer/composer.git)
-* [JSX](https://github.com/jsx/JSX.git)
+* [UglifyJS2](https://github.com/mishoo/UglifyJS2)
+* [composer](https://github.com/composer/composer)
+* [JSX](https://github.com/jsx/JSX)
 
 ## 提出建议/贡献代码
 
