@@ -22,7 +22,7 @@ var Footer = React.createClass({displayName: "Footer",
         React.createElement("a", {href: "https://github.com/rmccue/Requests", target: "_blank"}, "rmccue/requests"), ", ", 
         React.createElement("a", {href: "https://github.com/facebook/react", target: "_blank"}, "react"), ", ", 
         React.createElement("a", {href: "https://github.com/allmobilize/amazeui", target: "_blank"}, "amazeui"), ".", React.createElement("br", null), 
-        "Fork me on ", React.createElement("a", {href: "#"}, React.createElement("i", {className: "am-icon-github"}), " Github")
+        "Fork me on ", React.createElement("a", {href: "https://github.com/Micooz/frimap"}, React.createElement("i", {className: "am-icon-github"}), " Github")
       )
     );
   }
