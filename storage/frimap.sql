@@ -6,4 +6,4 @@ CREATE TABLE frimap
   lng VARCHAR NOT NULL,
   lat VARCHAR NOT NULL,
   ip VARCHAR NOT NULL
-)
+);

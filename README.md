@@ -66,7 +66,12 @@ https://github.com/Micooz/frimap
 
 数据库采用轻量的本地数据库SQLite，请确保安装了SQLite驱动程序。
 
-请先建立数据库 `frimap.db`，然后通过 `storage/frimap.sql` 导入应用所需表的结构。
+请先建立数据库 `frimap.db`，然后通过 `storage/frimap.sql` 导入应用所需表的结构：
+
+    $ cd storage/
+    $ sqlite3 frimap.db
+    sqlite> .read frimap.sql
+    sqlite> .exit
 
 数据库配置文件位于 `app/database.php`：
 
@@ -100,7 +105,7 @@ https://github.com/Micooz/frimap
 
 由于应用需要向 `storage/` 目录写文件，因此请给 `storage/` 目录写入权限：
 
-    $ chmod +w storage/
+    $ chmod 777 -R storage/
 
 ### 开发帮助
 
