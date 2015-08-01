@@ -1,5 +1,9 @@
 # frimap
 
+## 项目地址
+
+https://github.com/Micooz/frimap
+
 ## 简介
 
 吧友地图是一个展示百度贴吧朋友位置的应用，通过这个应用，可发现自己的同城朋友们，可了解吧友的地理分布。
@@ -144,7 +148,9 @@ MIT
 
 通过Github的 `Issue` 及 `PullRequest` 系统可以很方便地提出你的建议和贡献你的代码：
 
+Issues：https://github.com/Micooz/frimap/issues
 
+PullRequest：https://github.com/Micooz/frimap/pulls
 
 ## 作者
 
