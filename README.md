@@ -77,7 +77,7 @@ http://map.apporz.com
     sqlite> .read frimap.sql
     sqlite> .exit
 
-数据库配置文件位于 `app/database.php`：
+数据库配置文件位于 `config/database.php`：
 
     return [
       'database_type' => 'sqlite',
@@ -115,7 +115,7 @@ http://map.apporz.com
 
 **路由指派**
 
-需要在 `app/Dispatcher.php` 中进行，参考 `route` 方法中的switch块。
+在 `app/Functional/Dispatcher.php` 中进行，参考 `route` 方法中的switch块。
 
 **React脚本**
 
