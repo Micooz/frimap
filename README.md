@@ -2,7 +2,7 @@
 
 ## 项目地址
 
-https://github.com/Micooz/frimap
+https://github.com/micooz/frimap
 
 ## 演示地址
 
