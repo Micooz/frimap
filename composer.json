@@ -1,0 +1,21 @@
+{
+  "name": "Micooz/frimap",
+  "description": "Frimap is a map of Baidu Tieba friends",
+  "minimum-stability": "alpha",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Micooz",
+      "email": "micooz@hotmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "rmccue/requests": ">=1.0",
+    "catfan/medoo": "0.9.*"
+  }
+}
