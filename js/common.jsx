@@ -22,7 +22,7 @@ var Footer = React.createClass({
         <a href="https://github.com/rmccue/Requests" target="_blank">rmccue/requests</a>,&nbsp;
         <a href="https://github.com/facebook/react" target="_blank">react</a>,&nbsp;
         <a href="https://github.com/allmobilize/amazeui" target="_blank">amazeui</a>.<br/>
-        Fork me on <a href="https://github.com/Micooz/frimap"><i className="am-icon-github"></i>&nbsp;Github</a>
+        Fork me on <a href="https://github.com/micooz/frimap"><i className="am-icon-github"></i>&nbsp;Github</a>
       </div>
     );
   }

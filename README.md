@@ -157,9 +157,9 @@ MIT
 
 通过Github的 `Issue` 及 `PullRequest` 系统可以很方便地提出你的建议和贡献你的代码：
 
-Issues：https://github.com/Micooz/frimap/issues
+Issues：https://github.com/micooz/frimap/issues
 
-PullRequest：https://github.com/Micooz/frimap/pulls
+PullRequest：https://github.com/micooz/frimap/pulls
 
 ## 作者
 
