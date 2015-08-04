@@ -13,7 +13,7 @@ class PassportController extends BaseController {
 
     if ($password_hash === $password_real) {
       Helpers::session('login', true);
-      return Helpers::view('admin');
+      return Helpers::redirect('/admin');
     }
     return "Illegal password!";
   }
