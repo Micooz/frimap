@@ -146,8 +146,9 @@ var Notes = React.createClass({
       <ul className="am-list am-list-static am-list-border am-list-striped">
         <li>1. 请先输入自己的ID</li>
         <li>2. 请允许浏览器获取你的位置</li>
-        <li>3. 如果自动定位有错误，请手动键入自己的位置，或者在地图上使用右键标示自己的位置</li>
+        <li>3. 如果自动定位有错误，请手动键入自己的位置<label>（需要根据自动提示选取项目）</label>，或者在地图上使用右键标示自己的位置</li>
         <li>4. 请勿冒用他人ID</li>
+        <li>5. 请注意保证自己的隐私</li>
       </ul>
     );
   }

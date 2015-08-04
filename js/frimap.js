@@ -146,8 +146,9 @@ var Notes = React.createClass({displayName: "Notes",
       React.createElement("ul", {className: "am-list am-list-static am-list-border am-list-striped"}, 
         React.createElement("li", null, "1. 请先输入自己的ID"), 
         React.createElement("li", null, "2. 请允许浏览器获取你的位置"), 
-        React.createElement("li", null, "3. 如果自动定位有错误，请手动键入自己的位置，或者在地图上使用右键标示自己的位置"), 
-        React.createElement("li", null, "4. 请勿冒用他人ID")
+        React.createElement("li", null, "3. 如果自动定位有错误，请手动键入自己的位置", React.createElement("label", null, "（需要根据自动提示选取项目）"), "，或者在地图上使用右键标示自己的位置"), 
+        React.createElement("li", null, "4. 请勿冒用他人ID"), 
+        React.createElement("li", null, "5. 请注意保证自己的隐私")
       )
     );
   }
