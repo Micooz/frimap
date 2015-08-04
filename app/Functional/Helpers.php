@@ -9,6 +9,11 @@ namespace App\Functional;
 class Helpers {
 
   /**
+   * @var array
+   */
+  private static $env_cache = [];
+
+  /**
    * @param $name
    * @return string
    */
@@ -22,21 +27,21 @@ class Helpers {
    * @return string
    */
   public static function view_path() {
-    return APP_ROOT . '/View/';
+    return APP_PATH . '/View/';
   }
 
   /**
    * @return string
    */
   public static function storage_path() {
-    return APP_ROOT . '/../storage/';
+    return APP_PATH . '/../storage/';
   }
 
   /**
    * @return string
    */
   public static function config_path() {
-    return APP_ROOT . '/../config/';
+    return APP_PATH . '/../config/';
   }
 
   /**
@@ -98,6 +103,23 @@ class Helpers {
   public static function redirect($url) {
     header("Location: $url");
     return "";
+  }
+
+  /**
+   * @param $key
+   * @return null
+   */
+  public static function env($key) {
+    if (empty(self::$env_cache)) {
+      $file = ROOT_PATH . '/.env';
+      if (file_exists($file)) {
+        $buffer = file_get_contents($file);
+        self::$env_cache = json_decode($buffer, true);
+      } else {
+        die('.env file not found!');
+      }
+    }
+    return isset(self::$env_cache[$key]) ? self::$env_cache[$key] : null;
   }
 
 }

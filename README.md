@@ -91,19 +91,21 @@ http://map.apporz.com
 修改 `js/common.jsx` 内的 `config` 变量即可：
 
     var config = config || {
-      forum: "xxxx吧", // 贴吧名
+      forum: "xxxx",   // 贴吧名
       level: 7         // 最低等级
     };
 
 **后端**
 
-修改 `config/app.php`：
+执行 `composer install` 后，目录下会多一个 `.env` 文件（如果没有，请将 `.env.example` 重命名为 `.env` ），该文件用于配置私有环境，你应该在这个文件中控制整个应用的设置：
 
-    return [
-      'forum' => "xxxx",    // 贴吧名，注意不带"吧"字
-      'level' => 7,         // 最低等级
-      'password' => 'xxxxx' // 后台管理密码，部署前请务必修改
-    ];
+修改 `.env` 文件：
+
+    {
+      "forum": "机器猫",         // 贴吧名
+      "level": 7,               // 最低等级
+      "password": "i8M_s0)+;ad" // 后台管理密码，发布前请务必修改
+    }
 
 ### 注意事项
 

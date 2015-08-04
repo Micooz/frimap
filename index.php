@@ -11,7 +11,8 @@
 
 require_once('vendor/autoload.php');
 
-define('APP_ROOT', $_SERVER['DOCUMENT_ROOT'] . '/app');
+define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
+define('APP_PATH', ROOT_PATH . '/app');
 
 if (PHP_MAJOR_VERSION >= 5 && PHP_MINOR_VERSION >= 4) {
 

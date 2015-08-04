@@ -10,7 +10,7 @@ return [
    | 该名称用于检查提交者所在贴吧的真实等级
    |
    */
-  'forum' => "机器猫",
+  'forum' => \App\Functional\Helpers::env('forum'),
 
   /*
    |---------------------------------------
@@ -21,7 +21,7 @@ return [
    |     >=level
    |
    */
-  'level' => 7,
+  'level' => \App\Functional\Helpers::env('level'),
 
   /*
    |---------------------------------------
@@ -34,6 +34,6 @@ return [
    | 部署应用时请务必修改
    |
    */
-  'password' => 'i8M_s0)+;ad'
+  'password' => \App\Functional\Helpers::env('password')
 
 ];

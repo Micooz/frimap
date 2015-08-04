@@ -17,5 +17,10 @@
   "require": {
     "rmccue/requests": ">=1.0",
     "catfan/medoo": "0.9.*"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "cp .env.example .env"
+    ]
   }
 }
