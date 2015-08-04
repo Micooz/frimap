@@ -5,9 +5,7 @@ var Map = React.createClass({
     map.centerAndZoom(new BMap.Point(104.737059, 36.394564), 5);
     map.enableScrollWheelZoom();
     map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));
-    map.addControl(new BMap.NavigationControl({
-      enableGeolocation: true
-    }));
+    map.addControl(new BMap.NavigationControl({enableGeolocation: true}));
     map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP, BMAP_HYBRID_MAP]}));
 
     // 利用浏览器定位
@@ -28,7 +26,7 @@ var Map = React.createClass({
             + ", " + addComp.district + ", " + addComp.street
             + ", " + addComp.streetNumber;
         });
-        _this.setLngLat(pt.lng, pt.lat);
+        _this.props.setPosition(pt.lng, pt.lat);
       } else {
         alert('自动定位失败：' + this.getStatus());
       }
@@ -67,7 +65,7 @@ var Map = React.createClass({
           map.centerAndZoom(pp, 15);
           map.addOverlay(new BMap.Marker(pp));
 
-          _this.setLngLat(pp.lng, pp.lat);
+          _this.props.setPosition(pp.lng, pp.lat);
         }
       });
       local.search(myValue);
@@ -88,7 +86,7 @@ var Map = React.createClass({
           var marker = new BMap.Marker(pt);
           map.addOverlay(marker);
         });
-        this.setLngLat(e.lng, e.lat);
+        this.props.setPosition(e.lng, e.lat);
       }.bind(this)
     }];
 
@@ -97,6 +95,7 @@ var Map = React.createClass({
     }
     map.addContextMenu(menu);
 
+    // load friends
     $.ajax({
       url: "/friends",
       method: "GET",
@@ -124,19 +123,13 @@ var Map = React.createClass({
       }.bind(this)
     });
   },
-  setLngLat: function (lng, lat) {
-    React.findDOMNode(this.refs.lng).value = lng;
-    React.findDOMNode(this.refs.lat).value = lat;
-  },
   render: function () {
-    return (
-      <div>
-        <input type="hidden" ref="lng" name="lng"/>
-        <input type="hidden" ref="lat" name="lat"/>
-
-        <div id="map" style={{width:"100%", height:"700px", border:"1px solid #DCDCDC"}}></div>
-      </div>
-    );
+    var mapStyle = {
+      width: "100%",
+      height: "700px",
+      border: "1px solid #DCDCDC"
+    };
+    return <div id="map" style={mapStyle}></div>;
   }
 });
 
@@ -156,24 +149,37 @@ var Notes = React.createClass({
 
 var Register = React.createClass({
   componentDidMount: function () {
+    this.setState({
+      doms: {
+        id: React.findDOMNode(this.refs.id),
+        level: React.findDOMNode(this.refs.level),
+        submit: React.findDOMNode(this.refs.submit),
+        tip: React.findDOMNode(this.refs.tip)
+      }
+    });
     React.findDOMNode(this.refs.id).focus();
     React.findDOMNode(this.refs.submit).setAttribute("disabled", "disabled");
   },
   getInitialState: function () {
     return {
-      level_pending: false
+      level_pending: false,
+      doms: {
+        id: null,
+        level: null,
+        submit: null,
+        tip: null
+      }
     };
   },
   handleGetLevel: function () {
     if (!this.state.level_pending) {
-      var text_level = React.findDOMNode(this.refs.level);
-      var text_id = React.findDOMNode(this.refs.id);
-      var btn_submit = React.findDOMNode(this.refs.submit);
+      var text_level = this.state.doms.level;
+      var text_id = this.state.doms.id;
+      var btn_submit = this.state.doms.submit;
 
       btn_submit.setAttribute("disabled", "disabled");
 
       if (text_id.value.trim() == "") {
-        text_id.focus();
         text_id.setAttribute("placeholder", "ID不能为空");
         return;
       } else {
@@ -192,12 +198,11 @@ var Register = React.createClass({
             text_level.value = "获取失败";
           } else {
             var level = parseInt(json.level);
-            text_level.value = level;
             if (level < config.level) {
               text_level.setAttribute("placeholder", "等级[" + level + "]未达到要求");
               text_level.value = "";
             } else {
-              var btn_submit = React.findDOMNode(this.refs.submit);
+              text_level.value = level;
               btn_submit.removeAttribute("disabled");
             }
           }
@@ -208,14 +213,15 @@ var Register = React.createClass({
       });
     }
   },
-  handleSubmit: function () {
+  handleSubmit: function (e) {
+    e.preventDefault();
     if (!this.state.level_pending) {
-      var btn_submit = React.findDOMNode(this.refs.submit);
-      var text_id = React.findDOMNode(this.refs.id);
-      var tip = React.findDOMNode(this.refs.tip);
+      var btn_submit = this.state.doms.submit;
+      var text_id = this.state.doms.id;
+      var tip = this.state.doms.tip;
 
-      var pos_lng = $("input[name=lng]").val();
-      var pos_lat = $("input[name=lat]").val();
+      var pos_lng = this.props.lng;
+      var pos_lat = this.props.lat;
 
       btn_submit.innerText = "请稍后...";
       btn_submit.setAttribute("disabled", "disabled");
@@ -226,7 +232,6 @@ var Register = React.createClass({
         dataType: "json",
         data: {id: text_id.value.trim(), lng: pos_lng, lat: pos_lat},
         success: function (json) {
-          //console.log(json);
           if (typeof(json) != "undefined") {
             if (json.no == 0) {
               location.href = location.href;
@@ -244,7 +249,6 @@ var Register = React.createClass({
           btn_submit.removeAttribute("disabled");
         }.bind(this)
       });
-      return false;
     }
   },
   render: function () {
@@ -279,7 +283,8 @@ var Register = React.createClass({
             &nbsp;
             <div className="am-form-group am-form-icon">
               <i className="am-icon-bar-chart"></i>
-              <input type="text" className="am-form-field" placeholder={"等级 > " + (config.level - 1).toString()} disabled
+              <input type="text" className="am-form-field" placeholder={"等级 >= " + config.level.toString()}
+                     disabled
                      ref="level"/>
             </div>
           </form>
@@ -299,14 +304,36 @@ var Register = React.createClass({
   }
 });
 
+var ContentBox = React.createClass({
+  getInitialState: function () {
+    return {
+      lng: 0.0,
+      lat: 0.0
+    };
+  },
+  setPosition: function (lng, lat) {
+    this.setState({
+      lng: lng,
+      lat: lat
+    });
+  },
+  render: function () {
+    return (
+      <div>
+        <Map map={this.state.map} setPosition={this.setPosition}/>
+        <br/>
+        <Register lng={this.state.lng} lat={this.state.lat}/>
+      </div>
+    );
+  }
+});
+
 var Container = React.createClass({
   render: function () {
     return (
       <div>
         <Header/>
-        <Map/>
-        <br/>
-        <Register/>
+        <ContentBox/>
         <Footer/>
       </div>
     );
