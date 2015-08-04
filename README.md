@@ -121,7 +121,7 @@ http://map.apporz.com
 
 由于前端使用了React，`js/*.jsx` 需要通过 `jsx` 程序编译为 `js/*.js`，项目提供了 `jsxbuilder.sh` 来帮助你一键编译jsx文件，首先安装：
 
-    $ npm install -g jsx
+    $ npm install -g react-tools
 
 然后执行：
 
@@ -129,9 +129,13 @@ http://map.apporz.com
 
 **js编译压缩**
 
-js代码压缩采用的是 `uglifyjs`：
+js代码压缩采用的是 `uglifyjs`，项目提供了 `compressjs.sh` 来帮助你一键压缩js文件，首先安装：
 
-    $ npm install uglify-js -g
+    $ npm install -g uglify-js
+    
+然后执行：
+
+    $ ./compressjs.sh
 
 `uglifyjs` 的用法参考：
 
