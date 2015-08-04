@@ -46,6 +46,8 @@ http://map.apporz.com
 | storage/          | 存放SQLite数据库           |
 | composer.json     | Composer包管理器的配置文件 |
 | jsxbuilder.sh     | jsx编译脚本                |
+| compressjs.sh     | js编译压缩脚本             |
+| .env.example      | .env的副本，全局配置文件   |
 | index.php         | 应用入口                   |
 
 本项目前端使用流行的AmazeUI和React，后端采用典型的MVC架构，不依赖任何MVC框架。
