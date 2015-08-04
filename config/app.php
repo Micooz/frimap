@@ -2,6 +2,6 @@
 
 return [
   'forum' => "机器猫",
-  'level' => 7,
+  'level => 10,
   'password' => 'i8M_s0)+;ad'
 ];
