@@ -1,3 +1,6 @@
+本项目fork自https://github.com/micooz/fr
+以下是原项目的说明
+
 # frimap
 
 ## 项目地址
