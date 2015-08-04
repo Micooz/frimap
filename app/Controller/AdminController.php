@@ -4,8 +4,16 @@ namespace App\Controller;
 
 use App\Functional\Helpers;
 
+/**
+ * Class AdminController
+ * @package App\Controller
+ */
 class AdminController extends BaseController {
 
+  /**
+   * @param $next
+   * @return string
+   */
   public function __init($next) {
     if (!Helpers::session('login')) {
       return Helpers::view('verify');
@@ -13,10 +21,16 @@ class AdminController extends BaseController {
     return $next();
   }
 
+  /**
+   * @return string
+   */
   public function getIndex() {
     return Helpers::view('admin');
   }
 
+  /**
+   * @return array|bool
+   */
   public function getFriends() {
     $database = new \medoo(Helpers::config('database'));
     return $database->select('frimap', [
@@ -24,6 +38,9 @@ class AdminController extends BaseController {
     ]);
   }
 
+  /**
+   * @return array
+   */
   public function deleteFriends() {
     $uid = $_REQUEST['uid'];
     if (preg_match('/[0-9]+/', $uid) === 1) {

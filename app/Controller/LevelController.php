@@ -4,8 +4,16 @@ namespace App\Controller;
 
 use App\Functional\Helpers;
 
+/**
+ * Class LevelController
+ * @package App\Controller
+ */
 class LevelController extends BaseController {
 
+  /**
+   * @param $username
+   * @return array
+   */
   public static function level($username) {
     $id = $username;
     $info_page = "http://tieba.baidu.com/home/main/?un=$id&ie=utf-8";
@@ -25,6 +33,9 @@ class LevelController extends BaseController {
     return ['id' => $id, 'level' => -1];
   }
 
+  /**
+   * @return array
+   */
   public function getIndex() {
     $id = $_GET["id"];
     return self::level($id);

@@ -4,12 +4,22 @@ namespace App\Controller;
 
 use App\Functional\Helpers;
 
+/**
+ * Class HomeController
+ * @package App\Controller
+ */
 class HomeController extends BaseController {
 
+  /**
+   * @return string
+   */
   public function getIndex() {
     return Helpers::view('index');
   }
 
+  /**
+   * @return array
+   */
   public function postIndex() {
     $id = $_POST['id'];
     $lng = $_POST['lng'];

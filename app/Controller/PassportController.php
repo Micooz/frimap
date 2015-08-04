@@ -4,8 +4,15 @@ namespace App\Controller;
 
 use App\Functional\Helpers;
 
+/**
+ * Class PassportController
+ * @package App\Controller
+ */
 class PassportController extends BaseController {
 
+  /**
+   * @return string
+   */
   public function postIndex() {
     $password_in = $_POST['password'];
     $password_hash = sha1($password_in);

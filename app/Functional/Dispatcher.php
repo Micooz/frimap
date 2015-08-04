@@ -8,12 +8,25 @@ use App\Controller\HomeController;
 use App\Controller\LevelController;
 use App\Controller\PassportController;
 
+/**
+ * Class Dispatcher
+ * @package App\Functional
+ */
 class Dispatcher {
 
+  /**
+   * @var string
+   */
   private $method;
 
+  /**
+   * @var string
+   */
   private $path;
 
+  /**
+   *
+   */
   public function __construct() {
     $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
@@ -21,6 +34,9 @@ class Dispatcher {
     $this->path = strtolower(parse_url($url, PHP_URL_PATH));
   }
 
+  /**
+   * @return Response|null
+   */
   public function route() {
     $controller = null;
     $action = 'Index';

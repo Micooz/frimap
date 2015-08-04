@@ -2,26 +2,46 @@
 
 namespace App\Functional;
 
+/**
+ * Class Helpers
+ * @package App\Functional
+ */
 class Helpers {
 
+  /**
+   * @param $name
+   * @return string
+   */
   public static function view($name) {
     $view = self::view_path() . "$name.html";
     $buffer = file_exists($view) ? file_get_contents($view) : '';
     return $buffer;
   }
 
+  /**
+   * @return string
+   */
   public static function view_path() {
     return APP_ROOT . '/View/';
   }
 
+  /**
+   * @return string
+   */
   public static function storage_path() {
     return APP_ROOT . '/../storage/';
   }
 
+  /**
+   * @return string
+   */
   public static function config_path() {
     return APP_ROOT . '/../config/';
   }
 
+  /**
+   * @return null
+   */
   public static function ip() {
     $ip = null;
     if ($_SERVER['REMOTE_ADDR']) {
@@ -34,6 +54,10 @@ class Helpers {
     return $ip;
   }
 
+  /**
+   * @param $key
+   * @return mixed|null
+   */
   public static function config($key) {
     $config = null;
     if (($pos = strpos($key, '.')) > 0) {
@@ -49,6 +73,11 @@ class Helpers {
     }
   }
 
+  /**
+   * @param null $key
+   * @param null $value
+   * @return null
+   */
   public static function session($key = null, $value = null) {
     if (is_null($key)) {
       return $_SESSION;
@@ -62,6 +91,10 @@ class Helpers {
     return null;
   }
 
+  /**
+   * @param $url
+   * @return string
+   */
   public static function redirect($url) {
     header("Location: $url");
     return "";
