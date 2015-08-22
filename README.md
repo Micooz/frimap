@@ -68,6 +68,14 @@ http://map.apporz.com
 
 前者用来操作SQLite数据库，后者用来发起HTTP请求。
 
+### URL Rewrite
+
+应用所处理的所有请求都要通过index.php转发，以Nginx为例，rewrite配置如下：
+
+    location / {
+      try_files $uri $uri/ /index.php?$query_string;
+    }
+
 ### 数据库
 
 数据库采用轻量的本地数据库SQLite，请确保安装了SQLite驱动程序。
