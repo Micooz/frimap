@@ -111,7 +111,7 @@ class Helpers {
    */
   public static function env($key) {
     if (empty(self::$env_cache)) {
-      $file = ROOT_PATH . '/.env';
+      $file = ROOT_PATH . '/../.env';
       if (file_exists($file)) {
         $buffer = file_get_contents($file);
         self::$env_cache = json_decode($buffer, true);

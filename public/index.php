@@ -9,10 +9,10 @@
  |
  */
 
-require_once('vendor/autoload.php');
+require_once('../vendor/autoload.php');
 
 define('ROOT_PATH', $_SERVER['DOCUMENT_ROOT']);
-define('APP_PATH', ROOT_PATH . '/app');
+define('APP_PATH', ROOT_PATH . '/../app');
 
 if (PHP_MAJOR_VERSION >= 5 && PHP_MINOR_VERSION >= 4) {
 
