@@ -98,7 +98,7 @@ http://map.apporz.com
 
 **前端**
 
-修改 `js/common.jsx` 内的 `config` 变量即可：
+修改 `js/common.jsx` 内的 `config` 变量，然后重新编译脚本即可：
 
     var config = config || {
       forum: "xxxx",   // 贴吧名
@@ -135,29 +135,22 @@ http://map.apporz.com
 
 在 `app/Functional/Dispatcher.php` 中进行，参考 `route` 方法中的switch块。
 
-**React脚本**
+**ReactJS脚本/js压缩**
 
-由于前端使用了React，`js/*.jsx` 需要通过 `jsx` 程序编译为 `js/*.js`，项目提供了 `jsxbuilder.sh` 来帮助你一键编译jsx文件，首先安装：
+本应用老版本使用react-tools中的 `jsx` 来编译jsx文件，ReactJS官方决定废弃该工具链，采用全新的Babel来代替，参考：
 
-    $ npm install -g react-tools
+[Deprecating JSTransform and react-tools](http://facebook.github.io/react/blog/2015/06/12/deprecating-jstransform-and-react-tools.html)
+
+项目提供 `jsxbuilder.sh` 来帮助你一键编译所有 `jsx` 文件并压缩。
+
+首先安装 [Babel](http://babeljs.io/docs/setup/#babel_cli) 以及 [uglifyjs](https://github.com/mishoo/UglifyJS2) ：
+
+    $ npm install -g babel
+    $ npm install -g uglify-js
 
 然后执行：
 
     $ ./jsxbuilder.sh
-
-**js编译压缩**
-
-js代码压缩采用的是 `uglifyjs`，项目提供了 `compressjs.sh` 来帮助你一键压缩js文件，首先安装：
-
-    $ npm install -g uglify-js
-    
-然后执行：
-
-    $ ./compressjs.sh
-
-`uglifyjs` 的用法参考：
-
-https://github.com/mishoo/UglifyJS2
 
 ## 开源协议
 
