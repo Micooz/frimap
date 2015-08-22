@@ -42,13 +42,12 @@ http://map.apporz.com
 | config/           | 存放应用配置文件           |
 | public/img/       | 图片资源                   |
 | public/js/        | 前端React脚本              |
-| public/react/     | React库                    |
+| public/react/     | React库                   |
 | public/index.php  | 应用入口                   |
 | storage/          | 存放SQLite数据库           |
-| composer.json     | Composer包管理器的配置文件 |
-| jsxbuilder.sh     | jsx编译脚本                |
-| compressjs.sh     | js编译压缩脚本             |
-| .env.example      | .env的副本，全局配置文件   |
+| composer.json     | Composer包管理器的配置文件  |
+| jsxbuilder.sh     | jsx编译压缩脚本            |
+| .env.example      | .env的副本，全局配置文件    |
 
 本项目前端使用流行的AmazeUI和ReactJS，后端采用典型的MVC架构，不依赖任何MVC框架。
 
