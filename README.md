@@ -40,17 +40,17 @@ http://map.apporz.com
 | app/Model/        | 模型(暂未使用)             |
 | app/View/         | 视图                       |
 | config/           | 存放应用配置文件           |
-| img/              | 图片资源                   |
-| js/               | 前端React脚本              |
-| react/            | React库                    |
+| public/img/       | 图片资源                   |
+| public/js/        | 前端React脚本              |
+| public/react/     | React库                    |
+| public/index.php  | 应用入口                   |
 | storage/          | 存放SQLite数据库           |
 | composer.json     | Composer包管理器的配置文件 |
 | jsxbuilder.sh     | jsx编译脚本                |
 | compressjs.sh     | js编译压缩脚本             |
 | .env.example      | .env的副本，全局配置文件   |
-| index.php         | 应用入口                   |
 
-本项目前端使用流行的AmazeUI和React，后端采用典型的MVC架构，不依赖任何MVC框架。
+本项目前端使用流行的AmazeUI和ReactJS，后端采用典型的MVC架构，不依赖任何MVC框架。
 
 ### 依赖
 
@@ -124,6 +124,12 @@ http://map.apporz.com
     $ chmod 777 -R storage/
 
 ### 开发帮助
+
+**使用PHP5内置Server**
+
+    $ sudo php -S localhost:80 -t public/
+
+使用内置服务器的好处是不必安装WebServer，只需一条命令即可运行应用。
 
 **路由指派**
 
